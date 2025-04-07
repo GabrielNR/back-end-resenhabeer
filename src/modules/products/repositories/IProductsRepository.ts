@@ -7,9 +7,10 @@ interface IFindProducts {
   id: string;
 }
 
-export default interface IProductsRepository {
+export interface IProductsRepository {
   create(data: ICreateProductDTO): Promise<Product>;
   findByName(name: string): Promise<Product | undefined>;
   findAllById(products: IFindProducts[]): Promise<Product[]>;
   updateQuantity(products: IUpdateProductsQuantityDTO[]): Promise<Product[]>;
+  list(): Promise<Product[]>;
 }

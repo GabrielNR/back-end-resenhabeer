@@ -2,9 +2,9 @@
   "type": "postgres",
   "host": "localhost",
   "port": "5432",
-  "username": "postgres",
+  "username": "docker",
   "password": "docker",
-  "database": "gostack_desafio09",
+  "database": "resenhabeer2",
   "entities": ["./src/modules/**/infra/typeorm/entities/*.ts"],
   "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
   "cli": {

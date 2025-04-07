@@ -3,12 +3,15 @@ import { inject, injectable } from 'tsyringe';
 import AppError from '@shared/errors/AppError';
 
 import Product from '../infra/typeorm/entities/Product';
-import IProductsRepository from '../repositories/IProductsRepository';
+import type {IProductsRepository} from '../repositories/IProductsRepository';
 
 interface IRequest {
   name: string;
   price: number;
   quantity: number;
+  barcode: string,
+  description: string,
+  expirationDate: Date,
 }
 
 @injectable()
@@ -18,7 +21,14 @@ class CreateProductService {
     private productsRepository: IProductsRepository,
   ) {}
 
-  public async execute({ name, price, quantity }: IRequest): Promise<Product> {
+  public async execute({ 
+    name, 
+    price, 
+    quantity,
+    barcode,
+    description,
+    expirationDate 
+  }: IRequest): Promise<Product> {
     const productExists = await this.productsRepository.findByName(name);
 
     if (productExists) {
@@ -29,6 +39,9 @@ class CreateProductService {
       name,
       price,
       quantity,
+      barcode,
+      description,
+      expirationDate
     });
 
     return product;

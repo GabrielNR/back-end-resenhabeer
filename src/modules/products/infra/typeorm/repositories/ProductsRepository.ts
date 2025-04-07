@@ -20,11 +20,17 @@ class ProductsRepository implements IProductsRepository {
     name,
     price,
     quantity,
+    barcode,
+    description,
+    expirationDate
   }: ICreateProductDTO): Promise<Product> {
     const product = this.ormRepository.create({
       name,
       price,
       quantity,
+      barcode,
+      description,
+      expirationDate
     });
 
     await this.ormRepository.save(product);
@@ -60,6 +66,11 @@ class ProductsRepository implements IProductsRepository {
     return this.ormRepository.save(products);
 
     // TODO - try to update only quantity property
+  }
+
+  public async list(): Promise<Product[]> {
+    const products = await this.ormRepository.find();
+    return products;
   }
 }
 

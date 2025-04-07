@@ -15,7 +15,13 @@ class Product {
   id: string;
 
   @Column()
+  barcode: string; 
+
+  @Column()
   name: string;
+
+  @Column()
+  description: string;
 
   @Column('decimal')
   price: number;
@@ -25,6 +31,9 @@ class Product {
 
   @OneToMany(() => OrdersProducts, order_products => order_products.product)
   order_products: OrdersProducts[];
+
+  @Column('timestamp with time zone')
+  expirationDate: Date;
 
   @CreateDateColumn()
   created_at: Date;
