@@ -5,5 +5,11 @@
       "src": "src/shared/infra/http/server.ts",
       "user": "@vercel/node"
     }
+  ],
+  "routes": [
+    {
+      "src": "(.*)",
+      "dest": "src/shared/infra/http/server.ts"
+    }
   ]
 }
