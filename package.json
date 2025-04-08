@@ -7,7 +7,8 @@
     "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --ignore-watch node_modules --poll src/shared/infra/http/index.ts",
     "typeorm": "ts-node-dev --poll -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "test": "cross-env NODE_ENV=test jest",
-    "build": "tsup src --out-dir build"
+    "build": "tsup src --out-dir build typeorm migration:run",
+    "vercel-build": "npx "
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
