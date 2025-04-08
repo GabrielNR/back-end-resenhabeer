@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 
-import ICustomersRepository from '@modules/customers/repositories/ICustomersRepository';
+import type { ICustomersRepository } from '@modules/customers/repositories/ICustomersRepository';
 import ICreateCustomerDTO from '@modules/customers/dtos/ICreateCustomerDTO';
 import Customer from '../entities/Customer';
 

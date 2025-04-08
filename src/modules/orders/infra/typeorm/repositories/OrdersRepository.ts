@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 
-import IOrdersRepository from '@modules/orders/repositories/IOrdersRepository';
+import {IOrdersRepository} from '@modules/orders/repositories/IOrdersRepository';
 import ICreateOrderDTO from '@modules/orders/dtos/ICreateOrderDTO';
 import Order from '../entities/Order';
 
